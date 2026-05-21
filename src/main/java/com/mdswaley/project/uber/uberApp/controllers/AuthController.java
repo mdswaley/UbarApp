@@ -1,6 +1,5 @@
 package com.mdswaley.project.uber.uberApp.controllers;
 
-import com.codingshuttle.project.uber.uberApp.dto.*;
 import com.mdswaley.project.uber.uberApp.dto.*;
 import com.mdswaley.project.uber.uberApp.services.AuthService;
 import jakarta.servlet.http.Cookie;
@@ -37,7 +36,7 @@ public class AuthController {
     @PostMapping("/login")
     ResponseEntity<LoginResponseDto> login(@RequestBody LoginRequestDto loginRequestDto,
                                            HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
-        String tokens[] = authService.login(loginRequestDto.getEmail(), loginRequestDto.getPassword());
+        String[] tokens = authService.login(loginRequestDto.getEmail(), loginRequestDto.getPassword());
 
         Cookie cookie = new Cookie("token", tokens[1]);
         cookie.setHttpOnly(true);

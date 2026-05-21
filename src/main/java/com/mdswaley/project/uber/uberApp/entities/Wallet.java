@@ -24,6 +24,6 @@ public class Wallet {
 
     private Double balance = 0.0;
 
-    @OneToMany(mappedBy = "wallet", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "wallet", fetch = FetchType.LAZY) // one wallet can have many wallet transaction.
     private List<WalletTransaction> transactions;
 }

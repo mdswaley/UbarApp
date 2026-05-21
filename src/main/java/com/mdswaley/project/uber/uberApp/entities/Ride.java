@@ -21,6 +21,7 @@ import java.time.LocalDateTime;
         @Index(name = "idx_ride_rider", columnList = "rider_id"),
         @Index(name = "idx_ride_driver", columnList = "driver_id")
 })
+// Ride is the journey itself like source to destination.
 public class Ride {
 
     @Id
@@ -36,10 +37,10 @@ public class Ride {
     @CreationTimestamp
     private LocalDateTime createdTime;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY) // many rides can have one rider
     private Rider rider;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY) // many rides can have one driver.
     private Driver driver;
 
     @Enumerated(EnumType.STRING)

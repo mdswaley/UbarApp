@@ -9,6 +9,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+// customer who ride that trip.
 public class Rider {
 
     @Id

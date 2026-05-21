@@ -35,7 +35,7 @@ public class WalletTransaction {
 
     private String transactionId;
 
-    @ManyToOne
+    @ManyToOne // many wallet transaction only have one wallet
     private Wallet wallet;
 
     @CreationTimestamp
