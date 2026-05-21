@@ -4,7 +4,6 @@ import com.mdswaley.project.uber.uberApp.dto.DriverDto;
 import com.mdswaley.project.uber.uberApp.dto.RideDto;
 import com.mdswaley.project.uber.uberApp.dto.RideRequestDto;
 import com.mdswaley.project.uber.uberApp.dto.RiderDto;
-import com.codingshuttle.project.uber.uberApp.entities.*;
 import com.mdswaley.project.uber.uberApp.entities.*;
 import com.mdswaley.project.uber.uberApp.entities.enums.RideRequestStatus;
 import com.mdswaley.project.uber.uberApp.entities.enums.RideStatus;

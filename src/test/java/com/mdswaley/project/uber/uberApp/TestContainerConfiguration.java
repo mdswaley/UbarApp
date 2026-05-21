@@ -2,18 +2,14 @@ package com.mdswaley.project.uber.uberApp;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
-import org.springframework.context.annotation.Bean;
-import org.testcontainers.containers.PostgreSQLContainer;
-import org.testcontainers.utility.DockerImageName;
+import org.testcontainers.containers.MySQLContainer;
 
 @TestConfiguration
 public class TestContainerConfiguration {
 
-    @Bean
     @ServiceConnection
-    PostgreSQLContainer<?> postgresContainer() {
-        var image = DockerImageName.parse("postgis/postgis:12-3.0")
-                .asCompatibleSubstituteFor("postgres");
-        return new PostgreSQLContainer<>(image);
+    MySQLContainer<?> mySQLContainer() {
+        return new MySQLContainer<>("mysql:latest"); // take mySql container from docker image
+//        so that we can use dummy database which is similar to original database
     }
 }
