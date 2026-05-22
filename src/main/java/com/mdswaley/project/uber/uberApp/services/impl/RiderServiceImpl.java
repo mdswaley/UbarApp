@@ -42,16 +42,26 @@ public class RiderServiceImpl implements RiderService {
     @Override
     @Transactional
     public RideRequestDto requestRide(RideRequestDto rideRequestDto) {
+//        Getting current user how is going to ride.
         Rider rider = getCurrentRider();
+
+//        converting RideRequestDTO to RideRequest class
         RideRequest rideRequest = modelMapper.map(rideRequestDto, RideRequest.class);
+
+//        currently driver is not accepting the request for that reason ride request is pending.
         rideRequest.setRideRequestStatus(RideRequestStatus.PENDING);
+
+//        we set current rider.
         rideRequest.setRider(rider);
 
+//        calculate the fare means amount according to the distance to travel.
         Double fare = rideStrategyManager.rideFareCalculationStrategy().calculateFare(rideRequest);
         rideRequest.setFare(fare);
 
+//        save teh request to the RideRequest no matter if diver is allocated or not.
         RideRequest savedRideRequest = rideRequestRepository.save(rideRequest);
 
+//        find the matching divers who accept the request.
         List<Driver> drivers = rideStrategyManager
                 .driverMatchingStrategy(rider.getRating()).findMatchingDriver(rideRequest);
 
