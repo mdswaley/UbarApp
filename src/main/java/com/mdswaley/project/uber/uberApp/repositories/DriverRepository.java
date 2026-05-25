@@ -10,8 +10,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
-// ST_Distance(point1, point2)
-// ST_DWithin(point1, 10000)
+// ST_Distance(point1, point2) find distance between 2 point (src, dst)
+// ST_DWithin(point1, 10000) all the point within 10 km
+// nativeQuery = true tells Spring Data JPA to execute the query as raw SQL directly
+//          in the database, instead of interpreting it as JPQL (Java Persistence Query Language).
 
 @Repository
 public interface DriverRepository extends JpaRepository<Driver, Long> {

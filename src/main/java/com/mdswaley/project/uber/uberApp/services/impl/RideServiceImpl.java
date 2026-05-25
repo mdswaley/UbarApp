@@ -35,10 +35,12 @@ public class RideServiceImpl implements RideService {
 
     @Override
     public Ride createNewRide(RideRequest rideRequest, Driver driver) {
+//        here we confirmed because driver is accepted the request of rider.
         rideRequest.setRideRequestStatus(RideRequestStatus.CONFIRMED);
 
         Ride ride = modelMapper.map(rideRequest, Ride.class);
         ride.setRideStatus(RideStatus.CONFIRMED);
+
         ride.setDriver(driver);
         ride.setOtp(generateRandomOTP());
         ride.setId(null);
