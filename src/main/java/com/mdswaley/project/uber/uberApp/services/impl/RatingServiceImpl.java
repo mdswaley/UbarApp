@@ -60,6 +60,7 @@ public class RatingServiceImpl implements RatingService {
 
         ratingRepository.save(ratingObj);
 
+
         Double newRating = ratingRepository.findByRider(rider)
                 .stream()
                 .mapToDouble(Rating::getRiderRating)
