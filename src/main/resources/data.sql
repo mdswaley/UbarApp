@@ -40,6 +40,9 @@ INSERT INTO app_user (name, email, password) VALUES
 ('Seema Rao', 'seema.rao@example.com', '$2a$10$examplePasswordHash39'),
 ('Tarun Sharma', 'tarun.sharma@example.com', '$2a$10$examplePasswordHash40');
 
+
+-- Here user can be a Rider or a driver. bcz you don't want to create different accounts for different purpose.
+-- So when you want to travel you make yourself as a Rider or when you earn money you make yourself Driver.
 INSERT INTO user_roles (user_id, roles) VALUES
 (1, 'RIDER'),
 (2, 'RIDER'),
@@ -121,6 +124,7 @@ INSERT INTO user_roles (user_id, roles) VALUES
 (40, 'RIDER'),
 (40, 'DRIVER');
 
+-- set first user as rider and add rider rating
 INSERT INTO rider (user_id, rating) VALUES
 (1, 4.9);
 
