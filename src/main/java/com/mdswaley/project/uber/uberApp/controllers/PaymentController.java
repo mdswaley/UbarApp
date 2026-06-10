@@ -30,5 +30,17 @@ public class PaymentController {
         return ResponseEntity.ok("Payment processed successfully");
     }
 
+    @PostMapping("/create/{rideId}")
+    public ResponseEntity<String> createPayment(@PathVariable Long rideId) {
+
+        Ride ride = rideRepository.findById(rideId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Ride not found"));
+
+        paymentService.createNewPayment(ride);
+
+        return ResponseEntity.ok("Payment Created");
+    }
+
 
 }
